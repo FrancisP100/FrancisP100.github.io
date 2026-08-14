@@ -1,101 +1,1494 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="O Portfolio de Francisco Pemessa,Desenvolvedor Web, Desenvolvedor de Software e Desenvolvedor de Jogos">
-    <meta name="author" content="Francisco Pemessa">
-    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/libs/css/estilo.css">
-    <script src="./libs/bootstrap/js/bootstrap.js"></script>
-    <script src="./libs/js/code.js"></script>
-    <title>Francis Dev</title>
+    <title>Francisco Pemessa | Software Engineer & AI Product Builder</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        theme: {
+                            bg: '#080a0f',
+                            card: '#101420',
+                            cardBorder: 'rgba(59, 130, 246, 0.16)',
+                            blue: '#3b82f6',
+                            purple: '#8b5cf6',
+                            cyan: '#06b6d4',
+                            emerald: '#10b981'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 22s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #080a0f;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        .theme-default {
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.35);
+            --secondary: #8b5cf6;
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #8b5cf6 100%);
+            --glow-border: rgba(59, 130, 246, 0.25);
+        }
+
+        .theme-cyan {
+            --primary: #06b6d4;
+            --primary-glow: rgba(6, 182, 212, 0.35);
+            --secondary: #3b82f6;
+            --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #6366f1 100%);
+            --glow-border: rgba(6, 182, 212, 0.25);
+        }
+
+        .theme-purple {
+            --primary: #8b5cf6;
+            --primary-glow: rgba(139, 92, 246, 0.35);
+            --secondary: #3b82f6;
+            --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #06b6d4 100%);
+            --glow-border: rgba(139, 92, 246, 0.25);
+        }
+
+        .glass-card {
+            background: rgba(16, 20, 32, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glow-border, rgba(59, 130, 246, 0.18));
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: var(--primary, #3b82f6);
+            box-shadow: 0 15px 35px -10px var(--primary-glow, rgba(59, 130, 246, 0.3));
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gradient-accent {
+            background: var(--accent-gradient);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary, #3b82f6);
+        }
+
+        .bg-grid-pattern {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        .cyber-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px dashed var(--primary, #3b82f6);
+            animation: spin 25s linear infinite;
+            opacity: 0.4;
+        }
+
+        .nav-link.active {
+            color: var(--primary, #3b82f6);
+            font-weight: 600;
+        }
+
+        .gh-box {
+            width: 12px;
+            height: 12px;
+            border-radius: 2.5px;
+        }
+    </style>
 </head>
+<body class="theme-default font-sans text-slate-200 antialiased selection:bg-blue-600 selection:text-white">
 
-<body>
-    <main>
-        <div class="container my-5">
-            <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg text-light">
-              <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-                <h1 class="display-4 fw-bold lh-1 ">Francisco Pemessa</h1>
-                <p class="lead">Eu sou um Desenvolvedor Web com + de 2 anos de experiência em Front-End e UI/UX, Desenvolvedor de Softwares para soluções tecnológicas há mais de 1 ano e Desenvolvedor de Jogos com + de 1 ano de experiência.</p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                  <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Serviços</button>
-                  <button type="button" class="btn btn-outline-light btn-lg px-4">Portfolio</button>
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
+        <button id="customizerToggleBtn" title="Personalizar Portfólio" class="w-12 h-12 rounded-full glass-card border border-blue-500/40 text-blue-400 flex items-center justify-center text-xl shadow-2xl hover:scale-110 transition-transform bg-black/80 backdrop-blur-md">
+            <i class="fa-solid fa-sliders animate-pulse"></i>
+        </button>
+    </div>
+
+    <!-- Live Portfolio Customizer Modal Drawer -->
+    <div id="customizerModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="glass-card w-full max-w-lg p-6 rounded-2xl relative border border-slate-700 bg-slate-900/95 max-h-[90vh] overflow-y-auto">
+            <button id="closeCustomizerBtn" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-xl font-bold text-white mb-1 flex items-center gap-2">
+                <i class="fa-solid fa-wand-magic-sparkles text-blue-400"></i> Painel de Edição em Tempo Real
+            </h3>
+            <p class="text-xs text-slate-400 mb-6">Ajuste os dados e o tema dinamicamente.</p>
+
+            <form id="portfolioCustomizerForm" class="space-y-4 text-sm">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Tema Visual</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button type="button" data-theme="theme-default" class="theme-btn py-2 px-3 rounded-lg border border-blue-500/50 bg-blue-950/40 text-blue-300 flex items-center justify-center gap-2 text-xs font-semibold hover:border-blue-400">
+                            <span class="w-3 h-3 rounded-full bg-blue-500 inline-block"></span> Blue Tech
+                        </button>
+                        <button type="button" data-theme="theme-cyan" class="theme-btn py-2 px-3 rounded-lg border border-cyan-500/30 bg-cyan-950/40 text-cyan-300 flex items-center justify-center gap-2 text-xs font-semibold hover:border-cyan-400">
+                            <span class="w-3 h-3 rounded-full bg-cyan-400 inline-block"></span> Cyan Glow
+                        </button>
+                        <button type="button" data-theme="theme-purple" class="theme-btn py-2 px-3 rounded-lg border border-purple-500/30 bg-purple-950/40 text-purple-300 flex items-center justify-center gap-2 text-xs font-semibold hover:border-purple-400">
+                            <span class="w-3 h-3 rounded-full bg-purple-500 inline-block"></span> Deep Violet
+                        </button>
+                    </div>
                 </div>
-              </div>
-              <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-                  <img class="rounded-lg-3 myimg" src="./assets/ME2.jpg" alt="Foto minha" width="720" height="500" >
-              </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Nome Completo</label>
+                    <input type="text" id="inputName" value="Francis Pemessa" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Especialidade Principal</label>
+                    <input type="text" id="inputRole" value="Software Engineer • Full Stack & AI Product Builder" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Slogan do Hero</label>
+                    <textarea id="inputHeroText" rows="2" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-400">BUILDING SOFTWARE & AI PRODUCTS THAT SOLVE REAL PROBLEMS.</textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-2.5 rounded-lg font-bold text-white bg-gradient-accent shadow-lg shadow-blue-500/20 hover:opacity-90">
+                        Aplicar Alterações
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Brand -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-accent p-0.5 shadow-lg shadow-blue-500/20">
+                    <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center font-bold text-white tracking-widest text-base font-mono group-hover:bg-transparent transition-all">
+                        <span id="navLogoInitials">FP</span>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span id="navBrandName" class="font-bold text-white text-base tracking-wider uppercase">Francis Pemessa</span>
+                    <span class="text-[10px] font-mono text-blue-400 uppercase tracking-widest flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Luanda, Angola 🇦🇴
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-7 text-xs font-semibold tracking-wide uppercase text-slate-300">
+                <a href="#hero" class="nav-link hover:text-blue-400 transition-colors active">Início</a>
+                <a href="#about" class="nav-link hover:text-blue-400 transition-colors">Sobre</a>
+                <a href="#projects" class="nav-link hover:text-blue-400 transition-colors">Projetos</a>
+                <a href="#architecture" class="nav-link hover:text-blue-400 transition-colors">Arquitetura</a>
+                <a href="#skills" class="nav-link hover:text-blue-400 transition-colors">Tecnologias</a>
+                <a href="#github" class="nav-link hover:text-blue-400 transition-colors">GitHub</a>
+                <a href="#process" class="nav-link hover:text-blue-400 transition-colors">Processo</a>
+            </nav>
+
+            <!-- Right Call to Action -->
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-accent shadow-lg shadow-blue-500/20 hover:scale-105 transition-all">
+                    <span>Contacto</span>
+                    <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                </a>
+
+                <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl p-2" aria-label="Abrir Menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
             </div>
         </div>
 
-        <div class="container col-xxl-8 px-4 py-5">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-              <div class="col-10 col-sm-8 col-lg-6">
-                <video class="video" muted="muted" autoplay="" loop="true" style="max-width: 100%; height: 100%; border-radius: 15px;">
-                    <source src="./assets/videos/WebdevVideo.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <div class="col-lg-6">
-                <h1 class="display-5 fw-bold text-light lh-1 mb-3">Web Designer</h1>
-                <p class="lead text-light">Com uma vasta experiência em Web Design ofereço a solução para empresas que ainda estão fora do maior mercado existente e impulsiono os seus negócios elevando a empresa a um novo patamar, o mundo digital, uma empresa sem um site, é uma empresa fora do atual mercado</p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Contactar</button>
-                  <button type="button" class="btn btn-outline-light btn-lg px-4">Portfolio</button>
-                </div>
-              </div>
-            </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-950/95 border-b border-slate-800 px-6 py-6 space-y-4">
+            <a href="#hero" class="mobile-nav-link block text-base text-slate-200 hover:text-blue-400 font-medium">Início</a>
+            <a href="#about" class="mobile-nav-link block text-base text-slate-200 hover:text-blue-400 font-medium">Sobre Mim</a>
+            <a href="#projects" class="mobile-nav-link block text-base text-slate-200 hover:text-blue-400 font-medium">Projetos</a>
+            <a href="#architecture" class="mobile-nav-link block text-base text-slate-200 hover:text-blue-400 font-medium">Arquitetura de Sistemas</a>
+            <a href="#skills" class="mobile-nav-link block text-base text-slate-200 hover:text-blue-400 font-medium">Stack Tecnológico</a>
+            <a href="#github" class="mobile-nav-link block text-base text-slate-200 hover:text-blue-400 font-medium">GitHub Activity</a>
+            <a href="#process" class="mobile-nav-link block text-base text-slate-200 hover:text-blue-400 font-medium">Processo de Engenharia</a>
+            <a href="#contact" class="mobile-nav-link block text-center py-3 rounded-xl font-bold text-white bg-gradient-accent">Contacto Direto</a>
         </div>
-          
-          <div class="container col-xxl-8 px-4 py-5"></div>
-            <div class="row flex-lg-row align-items-center g-5 py-5" style="margin-right: 5%;">
-              <div class="col-10 col-sm-8 col-lg-5">
-                <img src="./assets/hero-img.png" id="softimg" alt="" srcset="" style="max-width: 100%;height: 100%; padding-left:5%">
-              </div>
-              <div class="col-lg-6">
-                <h1 class="display-5 fw-bold text-light lh-1 mb-3">Software Developer</h1>
-                <p class="lead text-light">Com certificações em soluções baseadas em C#.NET. Com +1 ano de experiência, ajudo empresas e indivíduos a transformar ideias em aplicações robustas, eficientes e fáceis de usar.</p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Contactar</button>
-                  <button type="button" class="btn btn-outline-light btn-lg px-4">Portfolio</button>
-                </div>
-              </div>
-            </div>
-          </div>
+    </header>
 
-          <div class="container col-xxl-8 px-4 py-5"></div>
-          <div class="row flex-lg-row-reverse align-items-center g-5 py-5" style=" margin-right: 5%;">
-            <div class="col-10 col-sm-8 col-lg-5 overflow-hidden">
-              <img src="./assets/zomb1.png" alt="" srcset="" style="max-width: 100%;height: 100%; border-radius: 15px;">
-            </div>
-            <div class="col-lg-6">
-              <h1 class="display-5 fw-bold text-light lh-1 mb-3">Game Developer</h1>
-              <p class="lead text-light">Com um estudo e aprendizado na área de desenvolvimento de jogos usando o motor de jogo Godot há mais de 1 ano, crio experiências intuitivas e criativas para diferentes gêneros de jogos.</p>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Contactar</button>
-                <button type="button" class="btn btn-outline-light btn-lg px-4">Portfolio</button>
-              </div>
-            </div>
-          </div>
-        </div>
-          
-                        <!-- ======= Cta Section ======= -->
-            <section id="cta" class="cta">
-                <div class="container" data-aos="zoom-in">
-                    <div class="row">
-                        <div class="col-lg-9 text-center text-lg-start">
-                        <h3>Contacto</h3>
-                        <p> Entre em contacto comigo para solicitar algum dos meus serviços e garantir a solução para si ou para sua empresa.</p>
+    <!-- MAIN CONTENT -->
+    <main class="pt-20">
+
+        <section id="hero" class="relative min-h-[92vh] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 bg-grid-pattern overflow-hidden">
+            <div class="absolute top-1/4 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                
+                <!-- Hero Text Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-blue-500/30 text-xs font-mono tracking-wider text-blue-300 uppercase shadow-inner">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span id="heroBadgeRole">Software Engineer • Full Stack & AI Product Builder</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
+                        <span id="heroTitleDisplay" class="block text-gradient font-mono">BUILDING SOFTWARE & AI PRODUCTS THAT SOLVE REAL PROBLEMS.</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        Engenheiro de Software especializado no ecossistema <span class="text-white font-semibold">Web, Mobile e Inteligência Artificial</span>. Transformo problemas complexos de negócios em produtos digitais escaláveis e de alto desempenho.
+                    </p>
+
+                    <!-- Target Value Prop Badges -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1 text-xs font-mono font-medium text-slate-300">
+                        <span class="px-3 py-1.5 rounded-lg bg-blue-950/60 border border-blue-500/30 text-blue-300 flex items-center gap-1.5"><i class="fa-solid fa-globe text-blue-400"></i> Web Apps</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 text-purple-300 flex items-center gap-1.5"><i class="fa-solid fa-mobile-screen text-purple-400"></i> Cross-Platform Mobile</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 flex items-center gap-1.5"><i class="fa-solid fa-brain text-cyan-400"></i> AI Agents & LLMs</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 flex items-center gap-1.5"><i class="fa-solid fa-desktop text-emerald-400"></i> C# Desktop</span>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
+                        <a href="#projects" class="px-7 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-accent shadow-xl shadow-blue-500/25 hover:scale-105 transition-all flex items-center gap-2">
+                            <span>Explorar Projetos & Impacto</span>
+                            <i class="fa-solid fa-arrow-down text-xs"></i>
+                        </a>
+
+                        <button id="downloadCvBtn" class="px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-200 glass-card border border-slate-700 hover:border-blue-400 hover:bg-slate-800/80 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-file-code text-blue-400"></i>
+                            <span>Descarregar Currículo Técnico</span>
+                        </button>
+                    </div>
+
+                    <!-- Developer Live Code HUD -->
+                    <div class="pt-4 font-mono text-left inline-block max-w-lg w-full">
+                        <div class="glass-card rounded-xl p-4 border border-slate-800 text-xs text-slate-300 relative overflow-hidden bg-slate-950/90">
+                            <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-slate-500 text-[11px]">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-terminal text-blue-400"></i> engineer.config.ts</span>
+                                <span class="text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> Type-Safe Production</span>
+                            </div>
+                            <pre class="overflow-x-auto text-slate-300 leading-relaxed"><code><span class="text-purple-400">export const</span> engineer: <span class="text-cyan-300">SoftwareEngineer</span> = {
+  name: <span class="text-emerald-300" id="codeName">'Francis Pemessa'</span>,
+  title: <span class="text-amber-300">'Full Stack & AI Product Engineer'</span>,
+  location: <span class="text-amber-300">'Luanda, Angola 🇦🇴'</span>,
+  coreStack: [<span class="text-cyan-300">'Next.js'</span>, <span class="text-cyan-300">'TypeScript'</span>, <span class="text-cyan-300">'Supabase'</span>, <span class="text-cyan-300">'C# .NET'</span>, <span class="text-cyan-300">'AI APIs'</span>],
+  focus: <span class="text-blue-300">'Building resilient, high-impact software products'</span>
+};</code></pre>
                         </div>
-                        <div class="col-lg-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="#">Entrar em Contacto</a>
+                    </div>
+
+                </div>
+
+                <!-- Hero Right Card HUD & Profile -->
+                <div class="lg:col-span-5 flex justify-center relative">
+                    
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center">
+                        <div class="cyber-ring w-full h-full border-blue-400/40"></div>
+                        <div class="cyber-ring w-[112%] h-[112%] border-purple-500/30" style="animation-direction: reverse; animation-duration: 28s;"></div>
+                        
+                        <div class="w-full h-full rounded-3xl overflow-hidden glass-card p-3 border.2 border-blue-500/30 relative z-10 shadow-2xl flex flex-col justify-between bg-slate-900/95">
+                            
+                            <div class="w-full h-3/5 rounded-2xl overflow-hidden relative group border border-slate-800">
+                                <img id="avatarImageDisplay" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="Francis Pemessa Profile" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                                <div class="absolute bottom-3 left-3 right-3">
+                                    <div class="text-base font-bold text-white">Francis Pemessa</div>
+                                    <div class="text-xs text-blue-400 font-mono">Software Engineer & AI Builder</div>
+                                </div>
+                            </div>
+
+                            <div class="p-2 space-y-2">
+                                <div class="text-[11px] font-mono text-slate-400 flex items-center justify-between">
+                                    <span>Estatuto de Engenharia</span>
+                                    <span class="text-emerald-400 font-bold">Disponível para Projetos</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-1.5 text-center text-[10px] font-mono font-bold">
+                                    <div class="py-1.5 px-2 bg-blue-950/60 border border-blue-500/30 rounded-lg text-blue-300">Web & Mobile</div>
+                                    <div class="py-1.5 px-2 bg-purple-950/60 border border-purple-500/30 rounded-lg text-purple-300">C# .NET Core</div>
+                                    <div class="py-1.5 px-2 bg-cyan-950/60 border border-cyan-500/30 rounded-lg text-cyan-300">Agentes de IA</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Floating Stat Badge 1 -->
+                        <div class="absolute -top-4 -left-6 z-20 glass-card px-4 py-2.5 rounded-2xl border border-blue-500/40 flex items-center gap-3 animate-float shadow-xl bg-slate-900/95">
+                            <div class="w-9 h-9 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-base font-bold">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div>
+                                <div class="text-lg font-extrabold text-white font-mono">5+</div>
+                                <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Projetos Produzidos</div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Badge 2 -->
+                        <div class="absolute -bottom-6 -right-4 z-20 glass-card px-4 py-2.5 rounded-2xl border border-purple-500/40 flex items-center gap-3 animate-float shadow-xl bg-slate-900/95" style="animation-delay: 2s;">
+                            <div class="w-9 h-9 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 text-base font-bold">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <div>
+                                <div class="text-lg font-extrabold text-white font-mono">Full Stack</div>
+                                <div class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Frontend ao Cloud DB</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="border-y border-slate-800/80 bg-slate-950/80 py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="space-y-1">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-blue-400 font-mono">5+</div>
+                        <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Aplicações Entregues</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">100%</div>
+                        <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Foco em Código Limpo</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-purple-400 font-mono">Multiplataforma</div>
+                        <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Web • Mobile • Desktop</div>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">AI Native</div>
+                        <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Integração LLM & MCP</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/60">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 text-blue-400 text-xs font-mono uppercase tracking-widest">
+                        <i class="fa-solid fa-user-gear"></i> Visão & Engenharia
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        Adoro construir software que as pessoas <span class="text-gradient">realmente usam.</span>
+                    </h2>
+                    
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        De plataformas financeiras direcionadas ao mercado angolano a soluções educacionais com Inteligência Artificial, o meu foco está em transformar ideias abstratas e problemas complexos em produtos digitais funcionais, seguros e intuitivos.
+                    </p>
+
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Domínio do ecossistema <strong class="text-white">Next.js, React, TypeScript, Supabase, C# .NET, React Native e integrações de IA</strong>. Não me limito apenas a escrever código; projeto a arquitetura da base de dados, garanto segurança através de RLS (Row Level Security) e implemento pipelines de dados otimizados.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="glass-card p-4 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-location-dot text-blue-400 text-lg mb-1"></i>
+                            <div class="text-xs text-slate-400 uppercase font-mono">Localização</div>
+                            <div class="text-sm font-bold text-white">Luanda, Angola 🇦🇴</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-microchip text-purple-400 text-lg mb-1"></i>
+                            <div class="text-xs text-slate-400 uppercase font-mono">Domínio de Engenharia</div>
+                            <div class="text-sm font-bold text-white">Full Stack & AI Systems</div>
                         </div>
                     </div>
                 </div>
-            </section><!-- End Cta Section -->
-    </main>
-</body>
 
+                <!-- Engineering Principles Grid -->
+                <div class="lg:col-span-6">
+                    <div class="glass-card p-8 rounded-2xl border border-blue-500/20 bg-slate-900/90 relative overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-shield-halved text-cyan-400"></i> Pilares de Engenharia
+                            </h3>
+                            <span class="px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-mono font-bold">Standard de Código</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-950/60 border border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 text-lg shrink-0">
+                                    <i class="fa-solid fa-code-merge"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-bold text-white">Type Safety & Código Limpo</div>
+                                    <div class="text-xs text-slate-400">Uso rigoroso de TypeScript e C# fortificados com validação de esquema (Zod) para prevenir erros em tempo de execução.</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-950/60 border border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 text-lg shrink-0">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-bold text-white">Arquitetura Modular & Base de Dados</div>
+                                    <div class="text-xs text-slate-400">Modelagem relacional normalizada com PostgreSQL/Supabase e SQLite local com padrões Repository/Services.</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-950/60 border border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg shrink-0">
+                                    <i class="fa-solid fa-robot"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-bold text-white">Integração Prática de IA</div>
+                                    <div class="text-xs text-slate-400">Orquestração de modelos LLM (Claude, GPT-4, OpenRouter) com Prompt Engineering eficiente e controle de tokens.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="architecture" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/60">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 text-blue-400 text-xs font-mono uppercase tracking-widest mb-2">
+                    <i class="fa-solid fa-diagram-project"></i> Arquitetura de Software
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    Como Estruturo <span class="text-gradient">Sistemas Complexos</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-3">Exemplo do fluxo de dados e separação de responsabilidades em produções recentes.</p>
+            </div>
+
+            <!-- Architecture Interactive Tabs Diagram -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-800 bg-slate-900/90">
+                <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                    <div class="flex items-center gap-3">
+                        <span class="w-3 h-3 rounded-full bg-blue-500 animate-ping"></span>
+                        <h3 class="text-lg font-bold text-white">Diagrama de Fluxo & Camadas de Aplicação</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs">
+                        <button class="arch-tab active px-3.5 py-1.5 rounded-lg bg-blue-600 text-white font-semibold" data-arch="ai-platform">EveryDayLearnAI Stack</button>
+                        <button class="arch-tab px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white" data-arch="fintech">KwanzaFlow Engine</button>
+                        <button class="arch-tab px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white" data-arch="desktop">InformaIPIL C# Core</button>
+                    </div>
+                </div>
+
+                <!-- Arch Diagram Box 1: AI Platform -->
+                <div id="arch-ai-platform" class="arch-content pt-8 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center text-xs font-mono">
+                        
+                        <div class="glass-card p-4 rounded-xl border border-blue-500/30 bg-blue-950/20 space-y-2">
+                            <div class="text-blue-400 font-bold uppercase"><i class="fa-solid fa-desktop mb-1 block text-base"></i> Frontend Client</div>
+                            <div class="text-slate-200">Next.js 14 App Router</div>
+                            <div class="text-[10px] text-slate-400">Tailwind CSS • Zustand State • Server Components</div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-purple-500/30 bg-purple-950/20 space-y-2">
+                            <div class="text-purple-400 font-bold uppercase"><i class="fa-solid fa-network-wired mb-1 block text-base"></i> API Gateway / Middleware</div>
+                            <div class="text-slate-200">Edge API Routes</div>
+                            <div class="text-[10px] text-slate-400">JWT Auth Validation • Rate Limiting • Zod Schema Validation</div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-cyan-500/30 bg-cyan-950/20 space-y-2">
+                            <div class="text-cyan-400 font-bold uppercase"><i class="fa-solid fa-robot mb-1 block text-base"></i> AI Integration</div>
+                            <div class="text-slate-200">OpenRouter LLM Hub</div>
+                            <div class="text-[10px] text-slate-400">Claude / GPT Integration • Dynamic Context Injection • Streaming Responses</div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-emerald-500/30 bg-emerald-950/20 space-y-2">
+                            <div class="text-emerald-400 font-bold uppercase"><i class="fa-solid fa-database mb-1 block text-base"></i> Data Persistence</div>
+                            <div class="text-slate-200">Supabase PostgreSQL</div>
+                            <div class="text-[10px] text-slate-400">RLS Security Policies • Realtime Subscriptions • Vector Embeddings</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Arch Diagram Box 2: Fintech Engine -->
+                <div id="arch-fintech" class="arch-content hidden pt-8 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-xs font-mono">
+                        <div class="glass-card p-4 rounded-xl border border-blue-500/30 bg-blue-950/20 space-y-2">
+                            <div class="text-blue-400 font-bold uppercase"><i class="fa-solid fa-laptop mb-1 block text-base"></i> UI & Dashboards</div>
+                            <div class="text-slate-200">React + Recharts HUD</div>
+                            <div class="text-[10px] text-slate-400">Cálculo dinâmico de balanço em Kwanza (AOA), filtros e gráficos.</div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-purple-500/30 bg-purple-950/20 space-y-2">
+                            <div class="text-purple-400 font-bold uppercase"><i class="fa-solid fa-vault mb-1 block text-base"></i> Business Logic</div>
+                            <div class="text-slate-200">Ledger Financial Services</div>
+                            <div class="text-[10px] text-slate-400">Processamento de transações, agrupamento de categorias e orçamento.</div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-emerald-500/30 bg-emerald-950/20 space-y-2">
+                            <div class="text-emerald-400 font-bold uppercase"><i class="fa-solid fa-server mb-1 block text-base"></i> Storage Layer</div>
+                            <div class="text-slate-200">PostgreSQL + Supabase Auth</div>
+                            <div class="text-[10px] text-slate-400">Isolamento multi-tenant seguro com garantias de Row Level Security.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arch Diagram Box 3: Desktop Core -->
+                <div id="arch-desktop" class="arch-content hidden pt-8 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-xs font-mono">
+                        <div class="glass-card p-4 rounded-xl border border-cyan-500/30 bg-cyan-950/20 space-y-2">
+                            <div class="text-cyan-400 font-bold uppercase"><i class="fa-solid fa-window-maximize mb-1 block text-base"></i> UI Layer</div>
+                            <div class="text-slate-200">C# Windows Forms + Guna UI</div>
+                            <div class="text-[10px] text-slate-400">Interface moderna desktop com dados assíncronos e formulários ágeis.</div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-purple-500/30 bg-purple-950/20 space-y-2">
+                            <div class="text-purple-400 font-bold uppercase"><i class="fa-solid fa-cogs mb-1 block text-base"></i> BLL / Repositories</div>
+                            <div class="text-slate-200">.NET Service Pattern</div>
+                            <div class="text-[10px] text-slate-400">Geração de pautas académicas, cálculo de médias e validação de certificados.</div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-amber-500/30 bg-amber-950/20 space-y-2">
+                            <div class="text-amber-400 font-bold uppercase"><i class="fa-solid fa-box-archive mb-1 block text-base"></i> Local Database</div>
+                            <div class="text-slate-200">Embedded SQLite</div>
+                            <div class="text-[10px] text-slate-400">Base de dados local ultrarrápida, operável offline sem dependência externa.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/60">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 text-blue-400 text-xs font-mono uppercase tracking-widest mb-2">
+                        <i class="fa-solid fa-folder-open"></i> Portfolio de Engenharia
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        Projetos & <span class="text-gradient">Estudos de Caso</span>
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-1">Análise detalhada do problema, solução, stack e desafios técnicos de cada projeto.</p>
+                </div>
+
+                <!-- Filter Category Tabs -->
+                <div class="flex flex-wrap gap-2 glass-card p-1.5 rounded-xl border border-slate-800">
+                    <button class="project-tab active px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all bg-blue-600" data-filter="all">Todos</button>
+                    <button class="project-tab px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all" data-filter="web">Web & SaaS</button>
+                    <button class="project-tab px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all" data-filter="desktop">Desktop C#</button>
+                    <button class="project-tab px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all" data-filter="mobile">Mobile & IA</button>
+                    <button class="project-tab px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all" data-filter="gamedev">Game Dev</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: EveryDayLearnAI -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border border-slate-800 group" data-category="web">
+                    <div class="relative h-56 overflow-hidden bg-slate-950 p-4 border-b border-slate-800/80">
+                        <!-- Custom UI Preview Mockup inside card -->
+                        <div class="w-full h-full rounded-xl bg-slate-900 border border-cyan-500/30 p-3 font-mono text-[11px] text-slate-300 flex flex-col justify-between shadow-inner">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 text-cyan-400">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-robot"></i> EveryDayLearnAI Dashboard</span>
+                                <span class="text-[9px] px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/40">AI Connected</span>
+                            </div>
+                            <div class="space-y-1.5 py-1">
+                                <div class="bg-slate-950 p-2 rounded border border-slate-800 text-[10px]">
+                                    <span class="text-slate-400">Prompt:</span> <span class="text-slate-200">Explica a diferença entre RLS e RBAC...</span>
+                                </div>
+                                <div class="bg-cyan-950/40 p-2 rounded border border-cyan-500/20 text-[10px] text-cyan-200">
+                                    <i class="fa-solid fa-sparkles text-cyan-400 mr-1"></i> Resumo gerado com sucesso em 320ms.
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between text-[9px] text-slate-500">
+                                <span>Context Tokens: 1.2k</span>
+                                <span>Model: Claude 3.5 Sonnet</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold">Plataforma Educacional com IA</span>
+                            <span class="text-[10px] font-mono text-slate-400">2026 SaaS</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">EveryDayLearnAI</h3>
+                        
+                        <!-- Problem & Solution Bullet points for quick recruiter readability -->
+                        <div class="space-y-2 text-xs text-slate-300">
+                            <div><strong class="text-white">Desafio:</strong> Estudantes enfrentam dificuldades na organização de estudos e síntese de matérias extensas.</div>
+                            <div><strong class="text-white">Solução:</strong> Plataforma Web com assistente IA que personaliza planos de aprendizagem e gera resumos inteligentes.</div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="px-2.5 py-1 rounded-md bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-[11px] font-mono">Next.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">TypeScript</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">Supabase</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">OpenRouter LLM</span>
+                        </div>
+
+                        <div class="pt-3 flex items-center justify-between border-t border-slate-800/80">
+                            <button class="open-project-modal text-xs font-bold text-cyan-400 hover:underline flex items-center gap-1.5" 
+                                data-title="EveryDayLearnAI - AI-Powered Learning Platform"
+                                data-problem="Os estudantes gastam excessivo tempo organizando cronogramas de estudo e extraindo conceitos-chave de ficheiros extensos sem feedback personalizado."
+                                data-solution="Desenvolvimento de um SaaS que utiliza LLMs para analisar notas de estudo, criar planos adaptativos, quizzes interativos e tutorias em tempo real."
+                                data-role="Full Stack Engineer & Prompt Architect"
+                                data-stack="Next.js 14, TypeScript, Supabase (Auth + DB + Edge Functions), OpenRouter (Claude/GPT-4), Tailwind CSS, Zustand"
+                                data-challenges="Segurança das rotas da API com rate limiting por utilizador, injeção de contexto estruturado sem estourar limites de tokens e sincronização de estado com streaming."
+                                data-impact="Prototipagem funcional completa com resposta média de IA em <500ms e gestão centralizada de ficheiros de estudo."
+                                data-mockup="ai">
+                                Ver Case Study Completo <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: KwanzaFlow -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border border-slate-800 group" data-category="web">
+                    <div class="relative h-56 overflow-hidden bg-slate-950 p-4 border-b border-slate-800/80">
+                        <!-- Custom Financial HUD Preview -->
+                        <div class="w-full h-full rounded-xl bg-slate-900 border border-blue-500/30 p-3 font-mono text-[11px] text-slate-300 flex flex-col justify-between shadow-inner">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 text-blue-400">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-wallet"></i> KwanzaFlow Dashboard</span>
+                                <span class="text-[10px] text-emerald-400 font-bold">+18.4% Saldo</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 my-1">
+                                <div class="bg-slate-950 p-2 rounded border border-slate-800 text-[10px]">
+                                    <div class="text-slate-500">Receitas (AOA)</div>
+                                    <div class="text-emerald-400 font-bold text-xs">1,250,000 Kz</div>
+                                </div>
+                                <div class="bg-slate-950 p-2 rounded border border-slate-800 text-[10px]">
+                                    <div class="text-slate-500">Despesas (AOA)</div>
+                                    <div class="text-rose-400 font-bold text-xs">420,000 Kz</div>
+                                </div>
+                            </div>
+                            <div class="text-[9px] text-slate-500 flex justify-between">
+                                <span>Supabase DB Sync</span>
+                                <span>Relatórios Mensais</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-blue-400 uppercase tracking-wider font-semibold">Fintech Web App</span>
+                            <span class="text-[10px] font-mono text-slate-400">2025 Live</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">KwanzaFlow</h3>
+                        
+                        <div class="space-y-2 text-xs text-slate-300">
+                            <div><strong class="text-white">Desafio:</strong> Ausência de ferramentas modernas personalizadas à moeda local (Kwanza - AOA) e hábitos de gestão financeira em Angola.</div>
+                            <div><strong class="text-white">Solução:</strong> Plataforma SaaS de gestão financeira pessoal e empresarial com controlo orçamental e métricas em tempo real.</div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="px-2.5 py-1 rounded-md bg-blue-950/60 border border-blue-500/30 text-blue-300 text-[11px] font-mono">Next.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">Supabase</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">TypeScript</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">Recharts</span>
+                        </div>
+
+                        <div class="pt-3 flex items-center justify-between border-t border-slate-800/80">
+                            <button class="open-project-modal text-xs font-bold text-blue-400 hover:underline flex items-center gap-1.5"
+                                data-title="KwanzaFlow - Gestão Financeira Pessoal & Empresarial"
+                                data-problem="Soluções financeiras estrangeiras não suportam a realidade cambial e categorias de despesas típicas do ecossistema financeiro angolano."
+                                data-solution="Construção de uma aplicação Web completa que calcula receitas, despesas, balanço dinâmico e gera relatórios interativos com filtros por período em Kwanzas."
+                                data-role="Full Stack Developer"
+                                data-stack="Next.js App Router, React, Supabase PostgreSQL, Row Level Security (RLS), Tailwind CSS, Recharts"
+                                data-challenges="Isolamento de dados do utilizador com políticas de RLS no PostgreSQL e prevenção de cálculos inconsistentes de saldos acumulados na interface."
+                                data-impact="Interface fluida com suporte a exportação de relatórios e navegação otimizada para conexões móveis."
+                                data-mockup="fintech">
+                                Ver Case Study Completo <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: InformaIPIL -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border border-slate-800 group" data-category="desktop">
+                    <div class="relative h-56 overflow-hidden bg-slate-950 p-4 border-b border-slate-800/80">
+                        <!-- Custom Desktop C# HUD Preview -->
+                        <div class="w-full h-full rounded-xl bg-slate-900 border border-purple-500/30 p-3 font-mono text-[11px] text-slate-300 flex flex-col justify-between shadow-inner">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 text-purple-400">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-desktop"></i> InformaIPIL Core (C# .NET)</span>
+                                <span class="text-[9px] px-1.5 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-500/40">SQLite Local</span>
+                            </div>
+                            <div class="space-y-1 my-1 text-[10px]">
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Estudantes Inscritos:</span>
+                                    <span class="text-white font-bold">1,420</span>
+                                </div>
+                                <div class="flex justify-between text-slate-400">
+                                    <span>Pautas Emitidas:</span>
+                                    <span class="text-emerald-400 font-bold">100% Ok</span>
+                                </div>
+                                <div class="bg-slate-950 p-1.5 rounded border border-slate-800 text-[9px] text-purple-300">
+                                    Emissão Automática de Certificados Ativa
+                                </div>
+                            </div>
+                            <div class="text-[9px] text-slate-500 flex justify-between">
+                                <span>Guna UI Framework</span>
+                                <span>Windows OS Native</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-purple-400 uppercase tracking-wider font-semibold">Gestão Académica Desktop</span>
+                            <span class="text-[10px] font-mono text-slate-400">C# .NET Application</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">InformaIPIL</h3>
+                        
+                        <div class="space-y-2 text-xs text-slate-300">
+                            <div><strong class="text-white">Desafio:</strong> Processos manuais e lentidão na emissão de pautas e certificados de alunos em ambiente escolar.</div>
+                            <div><strong class="text-white">Solução:</strong> Sistema desktop executável em C# .NET para administração de notas, alunos e geração automática de relatórios.</div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="px-2.5 py-1 rounded-md bg-purple-950/60 border border-purple-500/30 text-purple-300 text-[11px] font-mono">C#</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">.NET Framework</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">SQLite</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">Guna UI</span>
+                        </div>
+
+                        <div class="pt-3 flex items-center justify-between border-t border-slate-800/80">
+                            <button class="open-project-modal text-xs font-bold text-purple-400 hover:underline flex items-center gap-1.5"
+                                data-title="InformaIPIL - Sistema de Gestão Académica Desktop"
+                                data-problem="Gargalos na verificação manual de médias, emissão de declarações de notas e risco de erro humano no lançamento de pautas em instituições de ensino."
+                                data-solution="Desenvolvimento de um software Desktop em C# com interface moderna Guna UI e base de dados SQLite local, automatizando cálculos de médias e impressão de documentos."
+                                data-role="Software Engineer (Lead Desktop Developer)"
+                                data-stack="C#, .NET Framework, Windows Forms, Guna UI, SQLite, Crystal Reports / Document Generator"
+                                data-challenges="Garantir persistência local rápida de dados de milhares de alunos sem congelamento da interface do utilizador durante buscas complexas."
+                                data-impact="Redução drástica do tempo de emissão de pautas académicas e gestão offline simplificada."
+                                data-mockup="desktop">
+                                Ver Case Study Completo <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: MicroJournalAI -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border border-slate-800 group" data-category="mobile">
+                    <div class="relative h-56 overflow-hidden bg-slate-950 p-4 border-b border-slate-800/80">
+                        <!-- Custom Mobile App Preview -->
+                        <div class="w-2/3 mx-auto h-full rounded-2xl bg-slate-900 border border-emerald-500/30 p-2.5 font-mono text-[10px] text-slate-300 flex flex-col justify-between shadow-2xl">
+                            <div class="flex items-center justify-between text-emerald-400 border-b border-slate-800 pb-1">
+                                <span><i class="fa-solid fa-mobile"></i> MicroJournal</span>
+                                <span class="text-[8px] text-slate-400">10:42</span>
+                            </div>
+                            <div class="bg-slate-950 p-2 rounded border border-slate-800 space-y-1">
+                                <div class="text-[9px] text-emerald-300 font-bold">Insight do Dia (IA):</div>
+                                <div class="text-[9px] text-slate-300">Foco elevado em arquitetura de backend nas últimas 24h.</div>
+                            </div>
+                            <div class="text-[8px] text-center text-slate-500">React Native • Expo</div>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">Mobile App & IA</span>
+                            <span class="text-[10px] font-mono text-slate-400">React Native</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">MicroJournalAI</h3>
+                        
+                        <div class="space-y-2 text-xs text-slate-300">
+                            <div><strong class="text-white">Desafio:</strong> Pessoas acham difícil manter diários habituais por falta de síntese e organização de pensamentos.</div>
+                            <div><strong class="text-white">Solução:</strong> App móvel cross-platform que analisa entradas diárias com IA e gera relatórios de hábitos.</div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono">React Native</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">Expo</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">Supabase</span>
+                        </div>
+
+                        <div class="pt-3 flex items-center justify-between border-t border-slate-800/80">
+                            <button class="open-project-modal text-xs font-bold text-emerald-400 hover:underline flex items-center gap-1.5"
+                                data-title="MicroJournalAI - Diário Móvel com Síntese Inteligente"
+                                data-problem="Dificuldade do utilizador em identificar padrões comportamentais e manter consistência em registos pessoais."
+                                data-solution="Desenvolvimento de aplicação móvel iOS/Android com React Native que categoriza automaticamente anotações e sintetiza reflexões semanais."
+                                data-role="Mobile & AI Engineer"
+                                data-stack="React Native, Expo, Supabase Auth & Database, OpenAI APIs, Nativewind"
+                                data-challenges="Otimização de consumo de dados móveis e encriptação local de notas pessoais."
+                                data-impact="UX fluida para mobile com registo rápido em menos de 10 segundos."
+                                data-mockup="mobile">
+                                Ver Case Study Completo <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Beat'em Up 2D Game -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border border-slate-800 group" data-category="gamedev">
+                    <div class="relative h-56 overflow-hidden bg-slate-950 p-4 border-b border-slate-800/80">
+                        <!-- Custom Game HUD Preview -->
+                        <div class="w-full h-full rounded-xl bg-slate-900 border border-amber-500/30 p-3 font-mono text-[11px] text-slate-300 flex flex-col justify-between shadow-inner">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 text-amber-400">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-gamepad"></i> Beat'em Up 2D (Godot)</span>
+                                <span class="text-[9px] text-amber-300">60 FPS</span>
+                            </div>
+                            <div class="space-y-1 py-1 text-[10px]">
+                                <div class="flex items-center justify-between bg-slate-950 p-1.5 rounded border border-slate-800">
+                                    <span>P1 Health Bar:</span>
+                                    <div class="w-24 bg-slate-800 h-2 rounded overflow-hidden">
+                                        <div class="bg-emerald-400 h-full w-[85%]"></div>
+                                    </div>
+                                </div>
+                                <div class="text-[9px] text-slate-400">Enemy AI State: <span class="text-amber-300">ATTACK_STATE</span></div>
+                            </div>
+                            <div class="text-[9px] text-slate-500 flex justify-between">
+                                <span>Finite State Machine</span>
+                                <span>2D Hitboxes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-amber-400 uppercase tracking-wider font-semibold">Game Dev & Física 2D</span>
+                            <span class="text-[10px] font-mono text-slate-400">Godot Engine</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">Beat'em Up 2D Action</h3>
+                        
+                        <div class="space-y-2 text-xs text-slate-300">
+                            <div><strong class="text-white">Desafio:</strong> Programar mecânicas complexas de combate, colisões e inteligência de inimigos em tempo real.</div>
+                            <div><strong class="text-white">Solução:</strong> Jogo 2D arcade desenvolvido em GDScript com Máquinas de Estados Finitos (FSM) para animações e combos.</div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="px-2.5 py-1 rounded-md bg-amber-950/60 border border-amber-500/30 text-amber-300 text-[11px] font-mono">Godot Engine</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">GDScript</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[11px] font-mono">2D Physics</span>
+                        </div>
+
+                        <div class="pt-3 flex items-center justify-between border-t border-slate-800/80">
+                            <button class="open-project-modal text-xs font-bold text-amber-400 hover:underline flex items-center gap-1.5"
+                                data-title="Beat'em Up 2D Game - Godot Engine"
+                                data-problem="Coordenar múltiplas instâncias de inimigos na tela com respostas físicas precisas e animações sem travamentos."
+                                data-solution="Implementação de lógica orientada a objetos em GDScript com máquinas de estados (FSM) separando estados de idle, ataque, dano e patrulha."
+                                data-role="Game Developer & Logic Designer"
+                                data-stack="Godot Engine 4, GDScript, Custom 2D Physics, Finite State Machines"
+                                data-challenges="Sincronização de Hitboxes/Hurtboxes por frame e otimização de renderização de sprites."
+                                data-impact="Prototipagem de mecânica de jogo rápida e sólida com alta taxa de quadros (60 FPS).",
+                                data-mockup="game">
+                                Ver Case Study Completo <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/60">
+            <div>
+                <div class="inline-flex items-center gap-2 text-blue-400 text-xs font-mono uppercase tracking-widest mb-2">
+                    <i class="fa-solid fa-code"></i> Tech Arsenal
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Stack Tecnológico & <span class="text-gradient">Ferramentas</span>
+                </h2>
+                <p class="text-slate-400 text-sm max-w-2xl mb-12">Conjunto de linguagens e tecnologias com as quais construo software seguro, moderno e preparado para escalabilidade.</p>
+            </div>
+
+            <!-- Skills Grid by Category -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Frontend -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-palette text-blue-400 text-xl"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Frontend Engineering</h3>
+                            <div class="text-[10px] font-mono text-slate-400">Interfaces Modernas & Otimizadas</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-blue-950/60 border border-blue-500/30 text-blue-300 text-xs font-mono font-semibold">Next.js 14</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-blue-950/60 border border-blue-500/30 text-blue-300 text-xs font-mono font-semibold">React</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-blue-950/60 border border-blue-500/30 text-blue-300 text-xs font-mono font-semibold">TypeScript</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-blue-950/60 border border-blue-500/30 text-blue-300 text-xs font-mono font-semibold">Tailwind CSS</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">Zustand</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">HTML5 / CSS3</span>
+                    </div>
+                </div>
+
+                <!-- Backend & Cloud -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-server text-purple-400 text-xl"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Backend & Cloud Databases</h3>
+                            <div class="text-[10px] font-mono text-slate-400">Bases de Dados & APIs</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold">Supabase</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold">PostgreSQL</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold">Node.js</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold">REST APIs</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">SQLite Local</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">Row Level Security</span>
+                    </div>
+                </div>
+
+                <!-- C# Desktop Development -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-desktop text-cyan-400 text-xl"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Desktop C# .NET</h3>
+                            <div class="text-[10px] font-mono text-slate-400">Aplicações Corporativas</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono font-semibold">C#</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono font-semibold">.NET Framework</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono font-semibold">Windows Forms</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">Guna UI Framework</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">Entity Framework / SQL</span>
+                    </div>
+                </div>
+
+                <!-- AI Systems & MCP -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-brain text-blue-400 text-xl"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">AI Engineering</h3>
+                            <div class="text-[10px] font-mono text-slate-400">LLMs & Agentes Autónomos</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-blue-950/60 border border-blue-500/30 text-blue-300 text-xs font-mono font-semibold">OpenRouter Hub</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-blue-950/60 border border-blue-500/30 text-blue-300 text-xs font-mono font-semibold">Claude Code / MCP</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-blue-950/60 border border-blue-500/30 text-blue-300 text-xs font-mono font-semibold">Prompt Engineering</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">Vector Embeddings</span>
+                    </div>
+                </div>
+
+                <!-- Mobile Development -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-mobile-screen text-emerald-400 text-xl"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Mobile Engineering</h3>
+                            <div class="text-[10px] font-mono text-slate-400">iOS & Android Cross-Platform</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-semibold">React Native</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-semibold">Expo SDK</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">Nativewind</span>
+                    </div>
+                </div>
+
+                <!-- Game Development & Engines -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-gamepad text-amber-400 text-xl"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Game Development</h3>
+                            <div class="text-[10px] font-mono text-slate-400">Simulação 2D/3D</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-500/30 text-amber-300 text-xs font-mono font-semibold">Godot Engine 4</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-500/30 text-amber-300 text-xs font-mono font-semibold">GDScript</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">Física de Colisão</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="github" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/60">
+            <div class="glass-card p-8 rounded-3xl border border-slate-800 bg-slate-900/90 relative overflow-hidden">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+                    <div>
+                        <div class="text-xs font-mono text-blue-400 uppercase tracking-widest flex items-center gap-2">
+                            <i class="fa-brands fa-github text-base"></i> Open Source & Version Control
+                        </div>
+                        <h3 class="text-xl font-bold text-white mt-1">Atividade de Commits & Repositórios</h3>
+                    </div>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white inline-flex items-center gap-2 w-fit">
+                        <i class="fa-brands fa-github"></i> Visitar GitHub de Francis Pemessa
+                    </a>
+                </div>
+
+                <div class="overflow-x-auto pb-2">
+                    <div class="flex gap-1.5 items-center justify-center min-w-[650px] p-2">
+                        <script>
+                            document.write(Array.from({length: 36}).map(() => {
+                                const colors = ['bg-slate-800', 'bg-blue-950', 'bg-blue-800', 'bg-blue-500', 'bg-cyan-400'];
+                                return `<div class="flex flex-col gap-1.5">
+                                    ${Array.from({length: 7}).map(() => {
+                                        const c = colors[Math.floor(Math.random() * colors.length)];
+                                        return `<div class="gh-box ${c}"></div>`;
+                                    }).join('')}
+                                </div>`;
+                            }).join(''));
+                        </script>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 pt-4 border-t border-slate-800/80 mt-2">
+                    <span>Práticas de Engenharia: Git Flow • Conventional Commits • Feature Branches</span>
+                    <div class="flex items-center gap-2">
+                        <span>Menos</span>
+                        <span class="w-2.5 h-2.5 rounded-sm bg-slate-800"></span>
+                        <span class="w-2.5 h-2.5 rounded-sm bg-blue-950"></span>
+                        <span class="w-2.5 h-2.5 rounded-sm bg-blue-800"></span>
+                        <span class="w-2.5 h-2.5 rounded-sm bg-blue-500"></span>
+                        <span class="w-2.5 h-2.5 rounded-sm bg-cyan-400"></span>
+                        <span>Mais</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/60">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 text-blue-400 text-xs font-mono uppercase tracking-widest mb-2">
+                    <i class="fa-solid fa-route"></i> Ciclo de Vida de Software
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    Processo de <span class="text-gradient">Desenvolvimento</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-3">Rigor técnico do levantamento de requisitos ao código em produção.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="text-xs font-mono text-blue-400 font-bold">ETAPA 01</div>
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-lg mx-auto">
+                        <i class="fa-solid fa-clipboard-question"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">1. Requisitos</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Identificar o problema real, utilizadores finais e regras de negócio do produto.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="text-xs font-mono text-purple-400 font-bold">ETAPA 02</div>
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-lg mx-auto">
+                        <i class="fa-solid fa-sitemap"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">2. Arquitetura</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Definir modelo de dados PostgreSQL/SQLite, rotas de API e fluxos de IA.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="text-xs font-mono text-cyan-400 font-bold">ETAPA 03</div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg mx-auto">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">3. Implementação</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Desenvolvimento modular com TypeScript/C#, Type Safety e componentes reutilizáveis.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="text-xs font-mono text-amber-400 font-bold">ETAPA 04</div>
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg mx-auto">
+                        <i class="fa-solid fa-shield-cat"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">4. Validação & QA</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Testes de integridade de dados, validação de permissões RLS e fluidez da UI.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="text-xs font-mono text-emerald-400 font-bold">ETAPA 05</div>
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg mx-auto">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">5. Deployment</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Publicação contínua, monitorização de APIs e melhorias com base em métricas.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/60">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-slate-800 relative overflow-hidden bg-slate-900/85">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 text-blue-400 text-xs font-mono uppercase tracking-widest">
+                            <i class="fa-solid fa-envelope"></i> Oportunidades & Contacto
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                            Vamos Construir <span class="text-gradient">Algo Incrível?</span>
+                        </h2>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Aberto a propostas de contratação, engenharia de produtos SaaS, soluções corporativas desktop C# e consultoria em IA e Automação.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-center gap-4 text-slate-300 text-sm">
+                                <div class="w-10 h-10 rounded-xl glass-card border border-slate-700 flex items-center justify-center text-blue-400">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 uppercase font-mono">Localização Principal</div>
+                                    <span class="font-semibold text-white">Luanda, Angola 🇦🇴</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 text-slate-300 text-sm">
+                                <div class="w-10 h-10 rounded-xl glass-card border border-slate-700 flex items-center justify-center text-purple-400">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 uppercase font-mono">E-mail Direto</div>
+                                    <a href="mailto:francispemessa@example.com" class="font-semibold text-white hover:text-blue-400 transition-colors">francispemessa@example.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex flex-wrap items-center gap-3">
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl glass-card border border-slate-700 flex items-center gap-2 text-xs font-semibold text-white hover:border-blue-400 transition-all">
+                                <i class="fa-brands fa-github text-base text-blue-400"></i> GitHub
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl glass-card border border-slate-700 flex items-center gap-2 text-xs font-semibold text-white hover:border-blue-400 transition-all">
+                                <i class="fa-brands fa-linkedin-in text-base text-blue-400"></i> LinkedIn
+                            </a>
+                            <a href="https://wa.me/244900000000" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl glass-card border border-slate-700 flex items-center gap-2 text-xs font-semibold text-white hover:border-emerald-400 transition-all">
+                                <i class="fa-brands fa-whatsapp text-base text-emerald-400"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Seu Nome</label>
+                                    <input type="text" required placeholder="Nome do Recrutador / Cliente" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-blue-400 transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Seu Email</label>
+                                    <input type="email" required placeholder="recrutador@empresa.com" class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-blue-400 transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Assunto / Proposta</label>
+                                <select class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-400 transition-colors">
+                                    <option>Oportunidade para Software Engineer / Full Stack</option>
+                                    <option>Desenvolvimento de SaaS Web (Next.js)</option>
+                                    <option>Sistema Desktop Corporativo (C# .NET)</option>
+                                    <option>Integração de Agentes de IA & Automação</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Detalhes da Oportunidade / Projeto</label>
+                                <textarea rows="4" required placeholder="Descreva sucintamente a vaga ou o projeto..." class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-blue-400 transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-accent shadow-xl shadow-blue-500/20 hover:scale-[1.01] transition-transform flex items-center justify-center gap-2">
+                                <span>Enviar Proposta Direta</span>
+                                <i class="fa-solid fa-paper-plane text-xs"></i>
+                            </button>
+                        </form>
+
+                        <div id="contactToast" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-semibold text-center">
+                            <i class="fa-solid fa-circle-check mr-2"></i> Mensagem enviada com sucesso! Entrarei em contacto brevemente.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div id="projectModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="glass-card w-full max-w-3xl p-6 sm:p-8 rounded-3xl relative border border-slate-700 bg-slate-900/95 max-h-[90vh] overflow-y-auto">
+            <button id="closeProjectModalBtn" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="inline-flex items-center gap-2 text-blue-400 text-xs font-mono uppercase tracking-widest mb-2">
+                <i class="fa-solid fa-file-code"></i> Engineering Case Study Detail
+            </div>
+            <h3 id="modalProjectTitle" class="text-2xl font-bold text-white mb-4"></h3>
+
+            <!-- Modal Nav Tabs -->
+            <div class="flex gap-2 border-b border-slate-800 pb-3 mb-6 font-mono text-xs">
+                <button class="modal-tab active px-3 py-1.5 rounded-lg bg-blue-600 text-white font-semibold" data-tab="overview">Visão Geral & Impacto</button>
+                <button class="modal-tab px-3 py-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white" data-tab="architecture">Arquitetura & Stack</button>
+                <button class="modal-tab px-3 py-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white" data-tab="challenges">Desafios Técnicos</button>
+            </div>
+
+            <div id="tab-overview" class="modal-tab-content space-y-4 text-sm text-slate-300">
+                <div class="glass-card p-4 rounded-xl border border-slate-800 bg-slate-950/60">
+                    <span class="text-xs font-mono text-blue-400 font-bold block mb-1 uppercase">01. O Problema</span>
+                    <p id="modalProblem" class="leading-relaxed text-xs text-slate-300"></p>
+                </div>
+                <div class="glass-card p-4 rounded-xl border border-slate-800 bg-slate-950/60">
+                    <span class="text-xs font-mono text-emerald-400 font-bold block mb-1 uppercase">02. A Solução Técnica</span>
+                    <p id="modalSolution" class="leading-relaxed text-xs text-slate-300"></p>
+                </div>
+                <div class="glass-card p-4 rounded-xl border border-slate-800 bg-slate-950/60">
+                    <span class="text-xs font-mono text-purple-400 font-bold block mb-1 uppercase">03. Impacto Entregue</span>
+                    <p id="modalImpact" class="leading-relaxed text-xs text-slate-300"></p>
+                </div>
+            </div>
+
+            <div id="tab-architecture" class="modal-tab-content hidden space-y-4 text-sm text-slate-300">
+                <div class="glass-card p-4 rounded-xl border border-slate-800 bg-slate-950/60">
+                    <span class="text-xs font-mono text-cyan-400 font-bold block mb-1 uppercase">Meu Papel Principal</span>
+                    <p id="modalRole" class="text-xs text-white font-bold"></p>
+                </div>
+                <div class="glass-card p-4 rounded-xl border border-slate-800 bg-slate-950/60">
+                    <span class="text-xs font-mono text-cyan-400 font-bold block mb-1 uppercase">Tecnologias Utilizadas</span>
+                    <p id="modalStack" class="text-xs font-mono text-cyan-200 leading-relaxed"></p>
+                </div>
+            </div>
+
+            <div id="tab-challenges" class="modal-tab-content hidden space-y-4 text-sm text-slate-300">
+                <div class="glass-card p-4 rounded-xl border border-slate-800 bg-slate-950/60">
+                    <span class="text-xs font-mono text-rose-400 font-bold block mb-1 uppercase">Gargalos de Engenharia Resolvidos</span>
+                    <p id="modalChallenges" class="leading-relaxed text-xs text-slate-300"></p>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-slate-800 pt-6 mt-6">
+                <span class="text-xs font-mono text-slate-400">Desenvolvido por Francis Pemessa</span>
+                <button id="closeModalBtnInner" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs">Fechar Case Study</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-t border-slate-900 py-10 bg-slate-950 text-slate-500 text-xs text-center">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                © <span id="yearDisplay">2026</span> <span id="footerNameDisplay">Francis Pemessa</span> • Software & AI Product Engineering.
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#hero" class="hover:text-blue-400 transition-colors">Voltar ao topo ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            document.getElementById('yearDisplay').textContent = new Date().getFullYear();
+
+            // Mobile Nav Logic
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Architecture Section Tabs
+            const archTabs = document.querySelectorAll('.arch-tab');
+            const archContents = document.querySelectorAll('.arch-content');
+
+            archTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    archTabs.forEach(t => {
+                        t.classList.remove('active', 'bg-blue-600', 'text-white');
+                        t.classList.add('bg-slate-800', 'text-slate-400');
+                    });
+                    tab.classList.add('active', 'bg-blue-600', 'text-white');
+                    tab.classList.remove('bg-slate-800', 'text-slate-400');
+
+                    const target = tab.getAttribute('data-arch');
+                    archContents.forEach(c => c.classList.add('hidden'));
+                    document.getElementById(`arch-${target}`).classList.remove('hidden');
+                });
+            });
+
+            // Portfolio Customizer Drawer
+            const customizerToggleBtn = document.getElementById('customizerToggleBtn');
+            const customizerModal = document.getElementById('customizerModal');
+            const closeCustomizerBtn = document.getElementById('closeCustomizerBtn');
+            const portfolioCustomizerForm = document.getElementById('portfolioCustomizerForm');
+
+            customizerToggleBtn.addEventListener('click', () => {
+                customizerModal.classList.remove('opacity-0', 'pointer-events-none');
+            });
+
+            closeCustomizerBtn.addEventListener('click', () => {
+                customizerModal.classList.add('opacity-0', 'pointer-events-none');
+            });
+
+            const themeBtns = document.querySelectorAll('.theme-btn');
+            themeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const themeName = btn.getAttribute('data-theme');
+                    document.body.className = `${themeName} font-sans text-slate-200 antialiased selection:bg-blue-600 selection:text-white`;
+                });
+            });
+
+            portfolioCustomizerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const nameVal = document.getElementById('inputName').value;
+                const roleVal = document.getElementById('inputRole').value;
+                const heroTextVal = document.getElementById('inputHeroText').value;
+
+                document.getElementById('navBrandName').textContent = nameVal;
+                document.getElementById('footerNameDisplay').textContent = nameVal;
+                document.getElementById('codeName').textContent = `'${nameVal}'`;
+                
+                const initials = nameVal.split(' ').map(n => n[0]).join('').toUpperCase();
+                document.getElementById('navLogoInitials').textContent = initials || 'FP';
+
+                document.getElementById('heroBadgeRole').textContent = roleVal;
+                document.getElementById('heroTitleDisplay').textContent = heroTextVal;
+
+                customizerModal.classList.add('opacity-0', 'pointer-events-none');
+            });
+
+            // Project Filter Tabs
+            const projectTabs = document.querySelectorAll('.project-tab');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    projectTabs.forEach(t => {
+                        t.classList.remove('active', 'bg-blue-600', 'text-white');
+                        t.classList.add('text-slate-400');
+                    });
+                    tab.classList.add('active', 'bg-blue-600', 'text-white');
+                    tab.classList.remove('text-slate-400');
+
+                    const filter = tab.getAttribute('data-filter');
+
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Project Case Study Modal Logic
+            const projectModal = document.getElementById('projectModal');
+            const closeProjectModalBtn = document.getElementById('closeProjectModalBtn');
+            const closeModalBtnInner = document.getElementById('closeModalBtnInner');
+            const openModalBtns = document.querySelectorAll('.open-project-modal');
+
+            const modalTabs = document.querySelectorAll('.modal-tab');
+            const modalTabContents = document.querySelectorAll('.modal-tab-content');
+
+            modalTabs.forEach(mTab => {
+                mTab.addEventListener('click', () => {
+                    modalTabs.forEach(t => {
+                        t.classList.remove('active', 'bg-blue-600', 'text-white');
+                        t.classList.add('bg-slate-800', 'text-slate-400');
+                    });
+                    mTab.classList.add('active', 'bg-blue-600', 'text-white');
+                    mTab.classList.remove('bg-slate-800', 'text-slate-400');
+
+                    const targetTab = mTab.getAttribute('data-tab');
+                    modalTabContents.forEach(c => c.classList.add('hidden'));
+                    document.getElementById(`tab-${targetTab}`).classList.remove('hidden');
+                });
+            });
+
+            openModalBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.getElementById('modalProjectTitle').textContent = btn.getAttribute('data-title');
+                    document.getElementById('modalProblem').textContent = btn.getAttribute('data-problem');
+                    document.getElementById('modalSolution').textContent = btn.getAttribute('data-solution');
+                    document.getElementById('modalImpact').textContent = btn.getAttribute('data-impact');
+                    document.getElementById('modalRole').textContent = btn.getAttribute('data-role');
+                    document.getElementById('modalStack').textContent = btn.getAttribute('data-stack');
+                    document.getElementById('modalChallenges').textContent = btn.getAttribute('data-challenges');
+
+                    projectModal.classList.remove('opacity-0', 'pointer-events-none');
+                });
+            });
+
+            const closeCaseStudyModal = () => {
+                projectModal.classList.add('opacity-0', 'pointer-events-none');
+            };
+
+            closeProjectModalBtn.addEventListener('click', closeCaseStudyModal);
+            closeModalBtnInner.addEventListener('click', closeCaseStudyModal);
+
+            // Contact Form
+            const contactForm = document.getElementById('contactForm');
+            const contactToast = document.getElementById('contactToast');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                contactToast.classList.remove('hidden');
+                contactForm.reset();
+                setTimeout(() => {
+                    contactToast.classList.add('hidden');
+                }, 5000);
+            });
+
+            // CV Download Notification
+            const downloadCvBtn = document.getElementById('downloadCvBtn');
+            downloadCvBtn.addEventListener('click', () => {
+                const userMsg = document.createElement('div');
+                userMsg.className = "fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-blue-600 text-white font-mono text-xs px-6 py-3 rounded-xl shadow-2xl border border-blue-400 flex items-center gap-2";
+                userMsg.innerHTML = `<i class="fa-solid fa-circle-check"></i> Download do Currículo de Engenheiro de Software iniciado!`;
+                document.body.appendChild(userMsg);
+                setTimeout(() => userMsg.remove(), 4000);
+            });
+        });
+    </script>
+</body>
 </html>
